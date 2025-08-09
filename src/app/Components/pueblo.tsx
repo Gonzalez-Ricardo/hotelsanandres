@@ -1,4 +1,11 @@
-import { Church, Palette, TreePine, Camera, Binoculars,Map } from "lucide-react";
+import {
+  Church,
+  Palette,
+  TreePine,
+  Camera,
+  Binoculars,
+  Map,
+} from "lucide-react";
 
 export default function Pueblo() {
   return (
@@ -53,13 +60,14 @@ export default function Pueblo() {
                 <div className="flex items-center space-x-3">
                   <Binoculars className="h-6 w-6 text-black" />
                   <span className="text-gray-700">
-                  Festividades tradicionales como la Semana Santa, la Romería y el Día de Muertos
+                    Festividades tradicionales como la Semana Santa, la Romería
+                    y el Día de Muertos
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Map className="h-6 w-6 text-black" />
                   <span className="text-gray-700">
-                  Puentes históricos, haciendas y jardines virreinales
+                    Puentes históricos, haciendas y jardines virreinales
                   </span>
                 </div>
               </div>
@@ -76,7 +84,13 @@ export default function Pueblo() {
                   preload="none"
                   poster="/images/Salvatierra.webp"
                   className="w-full h-auto object-cover rounded-lg shadow-xl"
-                />
+                  controls
+                  controlsList="nodownload"
+                  disablePictureInPicture
+                  onContextMenu={(e) => e.preventDefault()}
+                >
+                  Tu navegador no soporta el video.
+                </video>
               </div>
             </div>
           </div>
