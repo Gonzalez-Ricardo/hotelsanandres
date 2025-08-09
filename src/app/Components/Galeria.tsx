@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 const images = [
-  "19", "10", "12", "6", "1", "4", "6b", "13", "51", "Hab9", "21", "53",
+  "19", "10", "12", "3a", "1", "4", "6b", "13", "51", "Hab9", "21", "53",
 ];
 
 export default function Galeria() {
