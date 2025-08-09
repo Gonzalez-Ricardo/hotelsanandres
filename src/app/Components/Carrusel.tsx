@@ -23,7 +23,7 @@ function HeroCarousel() {
       alt: "Plaza principal con iglesia colonial",
     },
     {
-      image: "/images/53.webp",
+      image: "/images/24.webp",
       alt: "Jardines del hotel al atardecer",
     },
   ];
@@ -133,7 +133,7 @@ export default function Carrusel() {
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h2 className="text-5xl md:text-7xl font-bold mb-6">
             Bienvenidos al
-            <span className="block text-[#c1a362]">Hotel San Andres</span>
+            <span className="block text-[#c1a362]">Hotel San Andrés</span>
           </h2>
           <p className="text-xl md:text-2xl mb-8 opacity-90">
             Tu refugio en el corazón de Salvatierra, Guanajuato.
