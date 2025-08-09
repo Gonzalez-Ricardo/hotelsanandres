@@ -79,7 +79,7 @@ export default function Habitaciones() {
                   className="object-cover"
                 />
                 <Badge className="absolute top-4 left-4 bg-[#c1a362]">
-                  <b></b>
+                  <b>Más Popular</b>
                 </Badge>
               </div>
               <CardHeader>
@@ -94,7 +94,7 @@ export default function Habitaciones() {
                   Nuestra Habitación Doble está diseñada para brindar amplitud,
                   confort y funcionalidad. Cuenta con dos camas matrimoniales
                   vestidas con sábanas suaves, baño privado totalmente equipado,
-                  , incluye Wi-Fi gratuito, aire acondicionado y detalles
+                  incluye Wi-Fi gratuito, aire acondicionado y detalles
                   artesanales en la decoración. Ideal para familias o grupos de
                   hasta 4 personas que buscan comodidad, privacidad y una
                   experiencia relajante en el corazón de Salvatierra.
