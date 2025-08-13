@@ -1,10 +1,21 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import { useState } from "react";
 
 const images = [
-  "19", "10", "12", "3a", "1", "4", "6b", "13", "51", "Hab9", "21", "53",
+  "19",
+  "10",
+  "12",
+  "3a",
+  "1",
+  "4",
+  "6b",
+  "13",
+  "51",
+  "Hab9",
+  "21",
+  "53",
 ];
 
 export default function Galeria() {
@@ -16,7 +27,10 @@ export default function Galeria() {
         <div className="text-center mb-16">
           <h3 className="text-4xl font-bold text-white mb-4">Galería</h3>
           <p className="text-xl text-white">
-            Descubre cada rincón de nuestras habitaciones, diseñadas para brindarte comodidad, descanso y momentos inolvidables. Cada espacio refleja la esencia de nuestro pueblo mágico y la hospitalidad que nos distingue.
+            Descubre cada rincón de nuestras habitaciones, diseñadas para
+            brindarte comodidad, descanso y momentos inolvidables. Cada espacio
+            refleja la esencia de nuestra ciudad y la hospitalidad que
+            nos distingue.
           </p>
         </div>
 

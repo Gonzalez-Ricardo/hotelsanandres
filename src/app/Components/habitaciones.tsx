@@ -109,7 +109,7 @@ export default function Habitaciones() {
                     <Bed className="h-4 w-4 mr-1" />2 camas
                   </div>
                   <div className="flex items-center">
-                    <Bath className="h-4 w-4 mr-1" />1 baños
+                    <Bath className="h-4 w-4 mr-1" />1 baño
                   </div>
                 </div>
               </CardContent>
@@ -151,7 +151,7 @@ export default function Habitaciones() {
                     <Bed className="h-4 w-4 mr-1" />3 camas
                   </div>
                   <div className="flex items-center">
-                    <Bath className="h-4 w-4 mr-1" />1 baños
+                    <Bath className="h-4 w-4 mr-1" />1 baño
                   </div>
                 </div>
               </CardContent>

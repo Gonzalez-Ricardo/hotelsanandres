@@ -42,7 +42,7 @@ export default function Nosotros() {
               <p className="text-lg text-gray-700 mb-6">
                 <b>
                   El Hotel San Andrés ofrece un servicio de hospedaje de calidad
-                  en el corazón de Salvatierra, Guanajuato, Pueblo Mágico.
+                  en el corazón de Salvatierra, Guanajuato.
                 </b>{" "}
                 Nuestra excelencia nace del compromiso y dedicación que hemos
                 mantenido durante más de 25 años, brindando una atención

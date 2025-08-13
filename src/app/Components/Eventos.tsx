@@ -19,7 +19,7 @@ export default function Eventos() {
             </h3>
             <p className="text-xl text-white max-w-1xl mx-auto">
               Salvatierra celebra con el corazón sus tradiciones, historia y
-              cultura. Durante todo el año, nuestro pueblo mágico se llena de
+              cultura. Durante todo el año, nuestra ciudad se llena de
               vida con festivales, ferias, procesiones y espectáculos que
               reflejan la esencia de nuestra gente.
             </p>

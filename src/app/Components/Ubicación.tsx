@@ -22,7 +22,7 @@ export default function Ubicacion() {
               Nuestra Ubicación
             </h3>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Nos encontramos en el corazón del pueblo mágico, a pasos de los
+              Nos encontramos en el corazón de la ciudad, a pasos de los
               principales atractivos turísticos
             </p>
           </div>
@@ -148,13 +148,18 @@ export default function Ubicacion() {
                   <div className="text-2xl font-bold text-white mb-1">
                     2 hrs
                   </div>
-                  <div className="text-sm text-white"> Desde Querétaro o León</div>
+                  <div className="text-sm text-white">
+                    {" "}
+                    Desde Querétaro o León
+                  </div>
                 </div>
                 <div className="bg-[#757165] p-4 rounded-lg text-center">
                   <div className="text-2xl font-bold text-white mb-1">
                     5 min
                   </div>
-                  <div className="text-sm text-white">Caminando a la Plaza Principal</div>
+                  <div className="text-sm text-white">
+                    Caminando a la Plaza Principal
+                  </div>
                 </div>
               </div>
             </div>

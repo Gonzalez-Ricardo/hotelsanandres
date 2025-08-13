@@ -21,7 +21,7 @@ export default function Pueblo() {
                 Descubre Nuestro Salvatierra
               </h3>
               <p className="text-lg text-gray-700 mb-6">
-                Salvatierra, el primer Pueblo Mágico de Guanajuato, es un lugar
+                Salvatierra, la primera ciudad de Guanajuato, es un lugar
                 donde el tiempo se detiene para que puedas disfrutar de su
                 historia, su arquitectura colonial y su espíritu tradicional.
                 Rodeada de paisajes naturales, callejones empedrados y templos
