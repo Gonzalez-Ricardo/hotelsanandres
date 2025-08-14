@@ -65,8 +65,7 @@ export default function Ubicacion() {
                         En Automóvil
                       </h3>
                       <p className="text-white">
-                        Aproximadamente a 1 hora de Celaya y 2.5 horas de León o
-                        Querétaro. Fácil acceso desde la carretera federal.
+                        Aproximadamente a 30 minutos de Celaya y 2 horas de León. Fácil acceso desde la carretera federal.
                       </p>
                     </div>
                   </div>
@@ -81,7 +80,7 @@ export default function Ubicacion() {
                       </h3>
                       <ul className="text-white space-y-1">
                         <li>• Frente a la Plaza Principal</li>
-                        <li>• A solo 50 m de la Iglesia de San Francisco</li>
+                        <li>• A solo 50 metros de la Iglesia de San Francisco</li>
                         <li>• Junto al Mercado de Artesanías</li>
                         <li>• A 2 cuadras del Mirador del Puente de Batanes</li>
                       </ul>

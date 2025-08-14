@@ -95,7 +95,7 @@ export default function Nosotros() {
               <div className="grid grid-cols-2 gap-4 md:gap-6 mb-6">
                 <div className="text-center p-4 bg-gradient-to-br bg-[#757165] rounded-xl">
                   <div className="text-2xl md:text-3xl font-bold text-[#c1a362]">
-                    500+
+                    1,000+
                   </div>
                   <div className="text-xs md:text-sm text-white">
                     Familias hospedadas
