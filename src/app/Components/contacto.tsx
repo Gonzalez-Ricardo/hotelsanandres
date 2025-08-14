@@ -108,7 +108,7 @@ export default function Contacto() {
 
                   <div>
                     <Label className="py-2" htmlFor="mensaje">Mensaje adicional</Label>
-                    <Textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tus necesidades especiales..." />
+                    <Textarea id="mensaje" name="mensaje" placeholder="En que podemos ayudarte" />
                     <ValidationError prefix="Mensaje" field="mensaje" errors={state.errors} />
                   </div>
 
