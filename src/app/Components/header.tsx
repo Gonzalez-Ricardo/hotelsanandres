@@ -39,7 +39,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="#inicio" className="flex items-center space-x-3 group">
             <Image
-              src="/images/Logo1.png"
+              src="/images/Logo2.png"
               alt="Hotel San Andrés"
               width={140}
               height={140}
