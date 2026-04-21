@@ -1,162 +1,100 @@
 import Image from "next/image";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+
+const mainEvents = [
+  {
+    image: "/images/Virgen.webp",
+    month: "Abril",
+    title: "Semana Santa",
+    description:
+      "Vive una de las celebraciones religiosas más profundas de Salvatierra. El pueblo se transforma en un escenario espiritual lleno de tradición, devoción y cultura.",
+  },
+  {
+    image: "/images/Marquezada.webp",
+    month: "Septiembre",
+    title: "Marquezada",
+    description:
+      "Una fiesta única que une la tradición española con el corazón mexicano. Encierros de toros, espectáculos ecuestres, música en vivo y artesanías en las calles de Salvatierra.",
+  },
+  {
+    image: "/images/Navidad.webp",
+    month: "Diciembre",
+    title: "Salvatierra de Luces",
+    description:
+      "Durante diciembre, el centro histórico se ilumina con figuras monumentales y túneles brillantes. Magia navideña para vivir momentos inolvidables en familia.",
+  },
+];
+
+const monthlyEvents = [
+  { month: "Febrero", title: "Feria de la Candelaria", desc: "Danzas, gastronomía y artesanías en honor a la Virgen." },
+  { month: "Marzo", title: "Semana Santa", desc: "Espiritualidad y el Festival de Flores llenan la ciudad." },
+  { month: "Abril", title: "Señora de la Luz", desc: "Festividad de la patrona del pueblo." },
+  { month: "Septiembre", title: "Marquezada", desc: "Encierros taurinos y celebración de cultura local." },
+];
 
 export default function Eventos() {
   return (
-    <div>
-      <section id="eventos" className="py-28 bg-gradient-to-br bg-[#757165]">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-white mb-4">
-              Eventos y Festivales
-            </h3>
-            <p className="text-xl text-white max-w-1xl mx-auto">
-              Salvatierra celebra con el corazón sus tradiciones, historia y
-              cultura. Durante todo el año, nuestra ciudad se llena de
-              vida con festivales, ferias, procesiones y espectáculos que
-              reflejan la esencia de nuestra gente.
-            </p>
-          </div>
+    <section id="eventos" className="py-32 bg-[#1a1208]">
+      <div className="container mx-auto px-6 lg:px-12">
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="relative h-100">
+        {/* Encabezado */}
+        <div className="text-center mb-20">
+          <p className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-4 font-normal">
+            Cultura y tradición
+          </p>
+          <h2 className="text-5xl md:text-6xl font-thin text-white leading-tight">
+            Eventos y <span className="italic font-light text-[#c1a362]">Festivales</span>
+          </h2>
+          <div className="w-12 h-px bg-[#c1a362] mx-auto mt-6" />
+          <p className="text-white/75 text-sm font-light mt-8 max-w-2xl mx-auto leading-relaxed">
+            Salvatierra celebra con el corazón sus tradiciones, historia y cultura.
+            Durante todo el año, nuestra ciudad se llena de vida con festivales que
+            reflejan la esencia de nuestra gente.
+          </p>
+        </div>
+
+        {/* Eventos principales */}
+        <div className="grid md:grid-cols-3 gap-6 mb-20">
+          {mainEvents.map((event) => (
+            <div key={event.title} className="group overflow-hidden">
+              {/* Imagen */}
+              <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/Virgen.webp"
-                  alt="Festival Día de Muertos"
+                  src={event.image}
+                  alt={event.title}
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <Badge className="absolute top-4 left-4 bg-orange-600">
-                  Marzo
-                </Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl">Semana Santa</CardTitle>
-                <CardDescription>Abril</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Vive una de las celebraciones religiosas más profundas y
-                  conmovedoras de Salvatierra. Durante la Semana Santa, el
-                  pueblo se transforma en un escenario espiritual lleno de
-                  tradición, devoción y cultura.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="relative h-100">
-                <Image
-                  src="/images/Marquezada.webp"
-                  alt="Feria de Artesanías"
-                  fill
-                  className="object-cover"
-                />
-                <Badge className="absolute top-4 left-4 bg-green-600">
-                  Septiembre
-                </Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl">Marquezada</CardTitle>
-                <CardDescription>Septiembre</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4 pb-5">
-                  Una fiesta única que une la tradición española con el corazón
-                  mexicano. Cada septiembre, las calles de Salvatierra se llenan
-                  de color, arte y emoción con la tradicional Marquezada, una
-                  celebración que incluye encierros de toros, espectáculos
-                  ecuestres, música en vivo y una gran muestra de talento
-                  artesanal.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="relative h-100">
-                <Image
-                  src="/images/Navidad.webp"
-                  alt="Festival Gastronómico"
-                  fill
-                  className="object-cover"
-                />
-                <Badge className="absolute top-4 left-4 bg-red-600">
-                  Diciembre
-                </Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl">
-                  Salvatierra de Luces en Navidad
-                </CardTitle>
-                <CardDescription>Diciembre</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Durante diciembre, Salvatierra se llena de magia y encanto con
-                  su tradicional festival de luces navideñas. El centro
-                  histórico se ilumina con figuras monumentales, túneles
-                  brillantes y escenarios perfectos para vivir momentos
-                  inolvidables en familia.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Calendario de eventos mensuales */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h4 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-              Eventos Mensuales
-            </h4>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center p-4 border-l-4 border-[#c1a362]">
-                <h5 className="font-semibold text-gray-800 mb-2">Febrero</h5>
-                <p className="text-sm text-gray-600">Feria de la Candelaria</p>
-                <p className="text-sm text-gray-600">
-                  La Feria de la Candelaria reúne danzas, gastronomía y
-                  artesanías en honor a la Virgen.
-                </p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1208] via-transparent to-transparent" />
+                <div className="absolute top-4 left-4 border border-[#c1a362]/50 px-3 py-1">
+                  <span className="text-[#c1a362] text-xs tracking-widest uppercase font-light">{event.month}</span>
+                </div>
               </div>
 
-              <div className="text-center p-4 border-l-4 border-[#c1a362]">
-                <h5 className="font-semibold text-gray-800 mb-2">Marzo</h5>
-                <p className="text-sm text-gray-600">Semana Santa</p>
-                <p className="text-sm text-gray-600">
-                  Disfruta de la espiritualidad de la Semana Santa y la belleza
-                  del Festival de Flores
-                </p>
-              </div>
-
-              <div className="text-center p-4 border-l-4 border-[#c1a362]">
-                <h5 className="font-semibold text-gray-800 mb-2">Abril</h5>
-                <p className="text-sm text-gray-600">
-                  Festividad de Nuestra Señora de la Luz
-                </p>
-                <p className="text-sm text-gray-600">
-                  Conmemora la Festividad de Nuestra Señora de la Luz, patrona
-                  del pueblo
-                </p>
-              </div>
-
-              <div className="text-center p-4 border-l-4 border-[#c1a362]">
-                <h5 className="font-semibold text-gray-800 mb-2">Septiembre</h5>
-                <p className="text-sm text-gray-600">Marquezada</p>
-                <p className="text-sm text-gray-600">
-                  Disfruta de la adrenalina de la Marquezada, una celebración
-                  única con encierros taurinos y cultura local.
-                </p>
+              {/* Contenido */}
+              <div className="p-6 border border-white/5 border-t-0">
+                <h3 className="text-white font-light text-2xl mb-3 tracking-wide">{event.title}</h3>
+                <p className="text-white/75 text-base font-light leading-relaxed">{event.description}</p>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Calendario mensual */}
+        <div className="border border-white/10 p-10">
+          <h3 className="text-white font-thin text-2xl mb-10 text-center">
+            Calendario <span className="italic text-[#c1a362]">mensual</span>
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-white/10">
+            {monthlyEvents.map((ev) => (
+              <div key={ev.month} className="px-8 py-4 first:pl-0 last:pr-0">
+                <div className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-3 font-normal">{ev.month}</div>
+                <div className="text-white font-light text-lg mb-2">{ev.title}</div>
+                <div className="text-white/75 text-sm font-light leading-relaxed">{ev.desc}</div>
+              </div>
+            ))}
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

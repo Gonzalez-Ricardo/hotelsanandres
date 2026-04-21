@@ -1,205 +1,137 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Star, Users, Bed, Bath } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+
+const rooms = [
+  {
+    image: "/images/1.webp",
+    title: "Habitación Individual",
+    rating: "4.8",
+    description:
+      "Diseñada para ofrecer una estancia tranquila y cómoda. Cuenta con cama queen, baño privado, aire acondicionado, Wi-Fi gratuito y detalles artesanales en la decoración.",
+    guests: 2,
+    beds: 1,
+    baths: 1,
+    badge: null,
+  },
+  {
+    image: "/images/Hab9.webp",
+    title: "Habitación Doble",
+    rating: "4.9",
+    description:
+      "Amplitud, confort y funcionalidad. Dos camas matrimoniales, baño privado totalmente equipado, Wi-Fi gratuito y aire acondicionado. Ideal para familias o grupos.",
+    guests: 4,
+    beds: 2,
+    baths: 1,
+    badge: "Más Popular",
+  },
+  {
+    image: "/images/2.webp",
+    title: "Habitación Triple",
+    rating: "5.0",
+    description:
+      "Perfecta para familias grandes. Dos recámaras: una con cama queen y otra con dos matrimoniales. Baño privado, aire acondicionado, Wi-Fi y decoración artesanal.",
+    guests: 6,
+    beds: 3,
+    baths: 1,
+    badge: null,
+  },
+  {
+    image: "/images/3B.webp",
+    title: "Mini Depa",
+    rating: "5.0",
+    description:
+      "Mayor independencia para familias o grupos. Dos recámaras en dos plantas, dos baños completos, espacios amplios y detalles acogedores para una estancia privada.",
+    guests: 7,
+    beds: 4,
+    baths: 2,
+    badge: null,
+  },
+];
+
 export default function Habitaciones() {
   return (
-    <div>
-      <section
-        id="habitaciones"
-        className="py-28 bg-gradient-to-r from-[#d6cdc8] to-[#a9a392]"
-      >
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-gray-800 mb-4">
-              Nuestras Habitaciones
-            </h3>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Cada habitación está diseñada para ofrecerte comodidad y
-              autenticidad
-            </p>
-          </div>
+    <section id="habitaciones" className="py-32 bg-[#f5f0e8]">
+      <div className="container mx-auto px-6 lg:px-12">
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-9">
-            <Card className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-              <div className="relative mx-4 -mt-6 h-60 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r ">
-                <Image
-                  src="/images/1.webp"
-                  alt="Habitación Tradicional"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="flex items-center justify-between">
-                  Habitación Individual
-                  <div className="flex items-center">
-                    <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                    <span className="ml-1 text-sm">4.8</span>
-                  </div>
-                </CardTitle>
-                <CardDescription>
-                  Nuestra Habitación Individual está diseñada para ofrecer una
-                  estancia tranquila y cómoda. Cuenta con una cama queen vestida
-                  con sábanas suaves, baño privado totalmente equipado, aire
-                  acondicionado, Wi-Fi gratuito y detalles artesanales en la
-                  decoración. Ideal para viajeros que buscan descanso,
-                  privacidad y un ambiente acogedor en el corazón de
-                  Salvatierra.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
-                  <div className="flex items-center">
-                    <Users className="h-4 w-4 mr-1" />2 huéspedes
-                  </div>
-                  <div className="flex items-center">
-                    <Bed className="h-4 w-4 mr-1" />1 cama
-                  </div>
-                  <div className="flex items-center">
-                    <Bath className="h-4 w-4 mr-1" />1 baño
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-              <div className="relative mx-4 -mt-6 h-60 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r ">
-                <Image
-                  src="/images/Hab9.webp"
-                  alt="Suite Premium"
-                  fill
-                  className="object-cover"
-                />
-                <Badge className="absolute top-4 left-4 bg-[#c1a362]">
-                  <b>Más Popular</b>
-                </Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="flex items-center justify-between">
-                  Habitación Doble
-                  <div className="flex items-center">
-                    <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                    <span className="ml-1 text-sm">4.9</span>
-                  </div>
-                </CardTitle>
-                <CardDescription>
-                  Nuestra Habitación Doble está diseñada para brindar amplitud,
-                  confort y funcionalidad. Cuenta con dos camas matrimoniales
-                  vestidas con sábanas suaves, baño privado totalmente equipado,
-                  incluye Wi-Fi gratuito, aire acondicionado y detalles
-                  artesanales en la decoración. Ideal para familias o grupos de
-                  hasta 4 personas que buscan comodidad, privacidad y una
-                  experiencia relajante en el corazón de Salvatierra.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
-                  <div className="flex items-center">
-                    <Users className="h-4 w-4 mr-1" />4 huéspedes
-                  </div>
-                  <div className="flex items-center">
-                    <Bed className="h-4 w-4 mr-1" />2 camas
-                  </div>
-                  <div className="flex items-center">
-                    <Bath className="h-4 w-4 mr-1" />1 baño
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-              <div className="relative mx-4 -mt-6 h-60 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r ">
-                <Image
-                  src="/images/2.webp"
-                  alt="Habitación Triple"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="flex items-center justify-between">
-                  Habitación Triple
-                  <div className="flex items-center">
-                    <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                    <span className="ml-1 text-sm">5.0</span>
-                  </div>
-                </CardTitle>
-                <CardDescription>
-                  Nuestra Habitación Triple es perfecta para familias o grupos
-                  grandes. Dispone de dos recámaras: una con cama queen y otra
-                  con dos camas matrimoniales, todas con sábanas suaves y
-                  confortables. Incluye baño privado totalmente equipado, aire
-                  acondicionado, Wi-Fi gratuito y una decoración con detalles
-                  artesanales. Ideal para compartir momentos especiales con
-                  comodidad y privacidad en el corazón de Salvatierra.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
-                  <div className="flex items-center">
-                    <Users className="h-4 w-4 mr-1" />6 huéspedes
-                  </div>
-                  <div className="flex items-center">
-                    <Bed className="h-4 w-4 mr-1" />3 camas
-                  </div>
-                  <div className="flex items-center">
-                    <Bath className="h-4 w-4 mr-1" />1 baño
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-              <div className="relative mx-4 -mt-6 h-60 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r ">
-                <Image
-                  src="/images/3B.webp"
-                  alt="Mini Depa"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="flex items-center justify-between">
-                  Mini Depa
-                  <div className="flex items-center">
-                    <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                    <span className="ml-1 text-sm">5.0</span>
-                  </div>
-                </CardTitle>
-                <CardDescription>
-                  Nuestro Mini Depa ofrece mayor independencia y confort para
-                  familias o grupos. Tiene dos recámaras: en planta baja, una
-                  cama matrimonial, una individual y baño privado; en planta
-                  alta, dos camas matrimoniales y otro baño completo. Espacios
-                  amplios, área de descanso y detalles acogedores para una
-                  estancia cómoda y privada.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
-                  <div className="flex items-center">
-                    <Users className="h-4 w-4 mr-1" />7 huéspedes
-                  </div>
-                  <div className="flex items-center">
-                    <Bed className="h-4 w-4 mr-1" />4 camas
-                  </div>
-                  <div className="flex items-center">
-                    <Bath className="h-4 w-4 mr-1" />2 baños
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+        {/* Encabezado */}
+        <div className="text-center mb-20">
+          <p className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-4 font-normal">
+            Espacios diseñados para ti
+          </p>
+          <h2 className="text-5xl md:text-6xl font-thin text-[#1a1208] mb-4 leading-tight">
+            Nuestras <span className="italic font-light">Habitaciones</span>
+          </h2>
+          <div className="w-12 h-px bg-[#c1a362] mx-auto mt-6" />
         </div>
-      </section>
-    </div>
+
+        {/* Grid de habitaciones */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {rooms.map((room) => (
+            <div
+              key={room.title}
+              className="group bg-white overflow-hidden hover:shadow-xl transition-all duration-500"
+            >
+              {/* Imagen */}
+              <div className="relative h-56 overflow-hidden">
+                <Image
+                  src={room.image}
+                  alt={room.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+
+                {/* Rating */}
+                <div className="absolute top-4 right-4 bg-[#1a1208]/80 backdrop-blur-sm px-2 py-1 flex items-center gap-1">
+                  <Star className="h-3 w-3 fill-[#c1a362] text-[#c1a362]" />
+                  <span className="text-white text-xs font-light">{room.rating}</span>
+                </div>
+
+                {/* Badge */}
+                {room.badge && (
+                  <div className="absolute top-4 left-4 bg-[#c1a362] px-3 py-1">
+                    <span className="text-white text-xs tracking-widest uppercase font-light">{room.badge}</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Contenido */}
+              <div className="p-6">
+                <h3 className="text-[#1a1208] font-light text-xl mb-3 tracking-wide">{room.title}</h3>
+                <p className="text-[#4a4035] text-base font-light leading-relaxed mb-5">
+                  {room.description}
+                </p>
+
+                {/* Iconos */}
+                <div className="flex items-center gap-4 pt-4 border-t border-[#c1a362]/15">
+                  <div className="flex items-center gap-1.5 text-[#4a4035]">
+                    <Users className="h-3.5 w-3.5 text-[#c1a362]" />
+                    <span className="text-sm font-light">{room.guests}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[#4a4035]">
+                    <Bed className="h-3.5 w-3.5 text-[#c1a362]" />
+                    <span className="text-sm font-light">{room.beds} {room.beds === 1 ? "cama" : "camas"}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[#4a4035]">
+                    <Bath className="h-3.5 w-3.5 text-[#c1a362]" />
+                    <span className="text-sm font-light">{room.baths} {room.baths === 1 ? "baño" : "baños"}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-14">
+          <Link href="#contacto">
+            <button className="bg-[#1a1208] hover:bg-[#c1a362] text-white text-sm tracking-[0.2em] uppercase px-12 py-4 transition-all duration-300">
+              Solicitar Reserva
+            </button>
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }
