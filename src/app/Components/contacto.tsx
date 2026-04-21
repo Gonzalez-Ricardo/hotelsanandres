@@ -74,7 +74,7 @@ export default function Contacto() {
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-white/75 font-light">Check-in</span>
-                  <span className="text-white/70 font-light">14:00 hrs</span>
+                  <span className="text-white/70 font-light">12:30 hrs</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-white/75 font-light">Check-out</span>
