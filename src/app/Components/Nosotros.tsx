@@ -84,9 +84,9 @@ export default function Nosotros() {
             {/* Misión */}
             <div className="mt-6 border-l-2 border-[#c1a362] pl-6">
               <p className="text-base text-[#4a4035] italic font-light leading-relaxed">
-                "Ofrecer a cada huésped un servicio excepcional, garantizando comodidad,
+                &ldquo;Ofrecer a cada huésped un servicio excepcional, garantizando comodidad,
                 atención personalizada y una limpieza impecable, para que su estancia
-                sea sinónimo de descanso, confianza y bienestar."
+                sea sinónimo de descanso, confianza y bienestar.&rdquo;
               </p>
             </div>
           </div>

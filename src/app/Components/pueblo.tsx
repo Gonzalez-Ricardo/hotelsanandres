@@ -1,3 +1,4 @@
+"use client";
 import { Church, Palette, TreePine, Camera, Binoculars, Map } from "lucide-react";
 
 const attractions = [
@@ -61,6 +62,7 @@ export default function Pueblo() {
                 preload="none"
                 poster="/images/Salvatierra.webp"
                 className="w-full h-auto object-cover"
+                suppressHydrationWarning
                 controls
                 controlsList="nodownload"
                 disablePictureInPicture

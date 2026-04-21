@@ -8,7 +8,7 @@ const rooms = [
     title: "Habitación Individual",
     rating: "4.8",
     description:
-      "Diseñada para ofrecer una estancia tranquila y cómoda. Cuenta con cama queen, baño privado, aire acondicionado, Wi-Fi gratuito y detalles artesanales en la decoración.",
+      "Nuestra Habitación Individual está diseñada para ofrecer una estancia tranquila y cómoda. Cuenta con una cama queen vestida con sábanas suaves, baño privado totalmente equipado, aire acondicionado, Wi-Fi gratuito y detalles artesanales en la decoración. Ideal para viajeros que buscan descanso, privacidad y un ambiente acogedor en el corazón de Salvatierra.",
     guests: 2,
     beds: 1,
     baths: 1,
@@ -19,7 +19,7 @@ const rooms = [
     title: "Habitación Doble",
     rating: "4.9",
     description:
-      "Amplitud, confort y funcionalidad. Dos camas matrimoniales, baño privado totalmente equipado, Wi-Fi gratuito y aire acondicionado. Ideal para familias o grupos.",
+      "Nuestra Habitación Doble está diseñada para brindar amplitud, confort y funcionalidad. Cuenta con dos camas matrimoniales vestidas con sábanas suaves, baño privado totalmente equipado, incluye Wi-Fi gratuito, aire acondicionado y detalles artesanales en la decoración. Ideal para familias o grupos de hasta 4 personas que buscan comodidad, privacidad y una experiencia relajante en el corazón de Salvatierra.",
     guests: 4,
     beds: 2,
     baths: 1,
@@ -30,7 +30,7 @@ const rooms = [
     title: "Habitación Triple",
     rating: "5.0",
     description:
-      "Perfecta para familias grandes. Dos recámaras: una con cama queen y otra con dos matrimoniales. Baño privado, aire acondicionado, Wi-Fi y decoración artesanal.",
+      "Nuestra Habitación Triple es perfecta para familias o grupos grandes. Dispone de dos recámaras: una con cama queen y otra con dos camas matrimoniales, todas con sábanas suaves y confortables. Incluye baño privado totalmente equipado, aire acondicionado, Wi-Fi gratuito y una decoración con detalles artesanales. Ideal para compartir momentos especiales con comodidad y privacidad en el corazón de Salvatierra.",
     guests: 6,
     beds: 3,
     baths: 1,
@@ -41,7 +41,7 @@ const rooms = [
     title: "Mini Depa",
     rating: "5.0",
     description:
-      "Mayor independencia para familias o grupos. Dos recámaras en dos plantas, dos baños completos, espacios amplios y detalles acogedores para una estancia privada.",
+      "Nuestro Mini Depa ofrece mayor independencia y confort para familias o grupos. Tiene dos recámaras: en planta baja, una cama matrimonial, una individual y baño privado; en planta alta, dos camas matrimoniales y otro baño completo. Espacios amplios, área de descanso y detalles acogedores para una estancia cómoda y privada.",
     guests: 7,
     beds: 4,
     baths: 2,
