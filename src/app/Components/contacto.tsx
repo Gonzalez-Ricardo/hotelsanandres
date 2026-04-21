@@ -66,7 +66,7 @@ export default function Contacto() {
 
             {/* Horarios */}
             <div className="mt-12 border border-white/10 p-6">
-              <h4 className="text-white font-light tracking-wide mb-4 text-sm uppercase tracking-widest">Horarios de atención</h4>
+              <h4 className="text-white font-light tracking-widest mb-4 text-sm uppercase tracking-widest">Horarios de atención</h4>
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
                   <span className="text-white/75 font-light">Lunes — Domingo</span>

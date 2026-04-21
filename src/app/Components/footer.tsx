@@ -20,7 +20,7 @@ export default function Footer() {
 
           {/* Logo + descripción */}
           <div>
-            <Image src="/images/Logo1.png" alt="Hotel San Andrés" width={80} height={80} className="mb-5 opacity-90" />
+            <Image src="/images/Logo2.png" alt="Hotel San Andrés" width={100} height={100} className="mb-5 opacity-90" />
             <p className="text-white/75 text-base font-light leading-relaxed max-w-xs">
               Tu refugio en el corazón de Salvatierra, Guanajuato.
               Más de 25 años de hospitalidad auténtica.

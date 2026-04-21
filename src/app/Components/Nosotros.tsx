@@ -14,13 +14,13 @@ export default function Nosotros() {
           <div className="relative">
             <div className="grid grid-cols-2 gap-3">
               <div className="col-span-2 relative h-72 overflow-hidden">
-                <Image src="/images/29.webp" alt="Entrada del hotel" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                <Image src="/images/29.webp" alt="Entrada del hotel" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="relative h-48 overflow-hidden">
-                <Image src="/images/23.webp" alt="Pasaje colonial" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                <Image src="/images/23.webp" alt="Pasaje colonial" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="relative h-48 overflow-hidden">
-                <Image src="/images/52.webp" alt="Recepción" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                <Image src="/images/52.webp" alt="Recepción" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
 
@@ -72,7 +72,7 @@ export default function Nosotros() {
             {/* Cifras */}
             <div className="grid grid-cols-2 gap-px bg-[#c1a362]/20">
               <div className="bg-[#f5f0e8] text-center p-6">
-                <div className="text-3xl font-thin text-[#c1a362] mb-1">1,000+</div>
+                <div className="text-3xl font-thin text-[#c1a362] mb-1">10,000+</div>
                 <div className="text-sm text-[#4a4035] tracking-widest uppercase font-light">Familias hospedadas</div>
               </div>
               <div className="bg-[#f5f0e8] text-center p-6">

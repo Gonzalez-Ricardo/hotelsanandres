@@ -44,6 +44,7 @@ export default function Header() {
               width={140}
               height={140}
               className="w-32 h-auto"
+              style={{ height: "auto" }}
             />
           </Link>
 

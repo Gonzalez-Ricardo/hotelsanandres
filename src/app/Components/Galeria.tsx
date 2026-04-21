@@ -45,6 +45,7 @@ export default function Galeria() {
                   src={`/images/${img}.webp`}
                   alt={`Imagen ${i + 1}`}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">

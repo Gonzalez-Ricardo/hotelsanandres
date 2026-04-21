@@ -62,6 +62,7 @@ export default function Eventos() {
                   src={event.image}
                   alt={event.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a1208] via-transparent to-transparent" />
