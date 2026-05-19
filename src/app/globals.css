@@ -92,6 +92,19 @@
     scroll-behavior: smooth;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   /* Elegant scrollbar */
   ::-webkit-scrollbar {
     width: 4px;
@@ -117,10 +130,28 @@
   transition-duration: 1500ms;
 }
 
+/* Scroll indicator animation */
+@keyframes scroll-drop {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(200%); opacity: 0; }
+}
+
 /* Line clamp */
 .line-clamp-3 {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+}
+
+/* Custom easing utilities (Emil Kowalski — strong ease-out for UI, in-out for on-screen motion) */
+@layer utilities {
+  .ease-ui {
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .ease-motion {
+    transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  }
 }

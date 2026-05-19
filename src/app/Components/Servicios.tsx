@@ -1,4 +1,3 @@
-import React from "react";
 import { Wifi, Car, AirVent, BrushCleaning, Shield, Bed, MapPin, Leaf } from "lucide-react";
 
 const services = [
@@ -76,23 +75,39 @@ export default function Servicios() {
           </div>
         </div>
 
-        {/* Grid de servicios */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
-          {services.map(({ icon: Icon, title, description, tags }) => (
+        {/* Lista editorial de servicios */}
+        <div>
+          {services.map(({ icon: Icon, title, description, tags }, i) => (
             <div
               key={title}
-              className="group bg-[#1a1208] p-8 hover:bg-[#231808] transition-colors duration-300 border border-transparent hover:border-[#c1a362]/20"
+              className="group grid grid-cols-[3rem_1fr] md:grid-cols-[4.5rem_1fr_auto] items-start gap-x-6 gap-y-3 py-10 border-b border-white/10 first:border-t hover:bg-white/[0.025] transition-colors duration-300 px-2 -mx-2"
             >
-              <div className="mb-6">
-                <div className="w-12 h-12 border border-[#c1a362]/30 group-hover:border-[#c1a362] flex items-center justify-center transition-colors duration-300">
-                  <Icon className="h-5 w-5 text-[#c1a362]" />
+              {/* Index number */}
+              <span className="text-5xl font-thin text-[#c1a362]/20 leading-none select-none tabular-nums transition-colors duration-500 group-hover:text-[#c1a362]/50 mt-1">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              {/* Content */}
+              <div className="min-w-0">
+                <div className="flex items-center gap-3 mb-2.5">
+                  <Icon className="h-4 w-4 text-[#c1a362] flex-shrink-0" />
+                  <h3 className="text-white font-light text-xl tracking-wide">{title}</h3>
+                </div>
+                <p className="text-white/60 text-base font-light leading-relaxed max-w-prose">{description}</p>
+                {/* Tags on mobile */}
+                <div className="flex flex-wrap gap-2 mt-4 md:hidden">
+                  {tags.map((tag) => (
+                    <span key={tag} className="text-xs px-3 py-1 border border-[#c1a362]/20 text-[#c1a362]/70 tracking-wider uppercase">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-              <h3 className="text-white font-light text-xl mb-3 tracking-wide">{title}</h3>
-              <p className="text-white/75 text-base font-light leading-relaxed mb-5">{description}</p>
-              <div className="flex flex-wrap gap-2">
+
+              {/* Tags on desktop */}
+              <div className="hidden md:flex flex-wrap gap-2 items-start justify-end pt-1">
                 {tags.map((tag) => (
-                  <span key={tag} className="text-xs px-3 py-1 border border-[#c1a362]/20 text-[#c1a362]/70 tracking-wider uppercase">
+                  <span key={tag} className="text-xs px-3 py-1 border border-[#c1a362]/20 text-[#c1a362]/70 tracking-wider uppercase whitespace-nowrap">
                     {tag}
                   </span>
                 ))}

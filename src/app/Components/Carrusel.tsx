@@ -54,32 +54,35 @@ function HeroCarousel() {
       {/* Controles — centrado abajo en móvil, lateral en desktop */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 bottom-20 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-6 z-20 w-10 h-10 md:w-12 md:h-12 border border-white/30 hover:border-[#c1a362] text-white hover:text-[#c1a362] flex items-center justify-center backdrop-blur-sm transition-all duration-300"
+        className="absolute left-4 bottom-20 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-6 z-20 w-10 h-10 md:w-12 md:h-12 border border-white/30 hover:border-[#c1a362] text-white hover:text-[#c1a362] flex items-center justify-center backdrop-blur-sm transition-[border-color,color,transform] duration-200 ease-ui active:scale-[0.97]"
         aria-label="Anterior"
       >
         <FaChevronLeft className="h-3 w-3 md:h-4 md:w-4" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 bottom-20 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:right-6 z-20 w-10 h-10 md:w-12 md:h-12 border border-white/30 hover:border-[#c1a362] text-white hover:text-[#c1a362] flex items-center justify-center backdrop-blur-sm transition-all duration-300"
+        className="absolute right-4 bottom-20 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:right-6 z-20 w-10 h-10 md:w-12 md:h-12 border border-white/30 hover:border-[#c1a362] text-white hover:text-[#c1a362] flex items-center justify-center backdrop-blur-sm transition-[border-color,color,transform] duration-200 ease-ui active:scale-[0.97]"
         aria-label="Siguiente"
       >
         <FaChevronRight className="h-3 w-3 md:h-4 md:w-4" />
       </button>
 
       {/* Indicadores */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex space-x-4">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`transition-all duration-300 ${
+            className="flex items-center justify-center w-10 h-10"
+            aria-label={`Imagen ${index + 1}`}
+            aria-current={index === currentSlide ? "true" : undefined}
+          >
+            <span className={`block transition-all duration-300 ${
               index === currentSlide
                 ? "w-8 h-0.5 bg-[#c1a362]"
                 : "w-4 h-0.5 bg-white/40 hover:bg-white/70"
-            }`}
-            aria-label={`Imagen ${index + 1}`}
-          />
+            }`} />
+          </button>
         ))}
       </div>
 
@@ -122,12 +125,12 @@ export default function Carrusel() {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="#habitaciones">
-              <button className="bg-[#c1a362] hover:bg-[#a98a47] text-white text-sm tracking-[0.2em] uppercase px-10 py-4 transition-all duration-300">
+              <button className="bg-[#c1a362] hover:bg-[#a98a47] text-white text-sm tracking-[0.2em] uppercase px-10 py-4 transition-[background-color,transform] duration-200 ease-ui active:scale-[0.97]">
                 Explorar Habitaciones
               </button>
             </Link>
             <Link href="#galeria">
-              <button className="border border-white/40 hover:border-[#c1a362] text-white hover:text-[#c1a362] text-sm tracking-[0.2em] uppercase px-10 py-4 backdrop-blur-sm transition-all duration-300">
+              <button className="border border-white/40 hover:border-[#c1a362] text-white hover:text-[#c1a362] text-sm tracking-[0.2em] uppercase px-10 py-4 backdrop-blur-sm transition-[border-color,color,transform] duration-200 ease-ui active:scale-[0.97]">
                 Ver Galería
               </button>
             </Link>
@@ -141,7 +144,10 @@ export default function Carrusel() {
           Scroll
         </span>
         <div className="w-px h-12 bg-white/20 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1/2 bg-[#c1a362] animate-bounce" />
+          <div
+            className="absolute top-0 left-0 w-full h-1/2 bg-[#c1a362]"
+            style={{ animation: "scroll-drop 2s ease-out infinite" }}
+          />
         </div>
       </div>
     </section>

@@ -1,3 +1,4 @@
+"use client";
 import { MapPin, Car, Navigation, Church, Palette, Mountain, Utensils, Map } from "lucide-react";
 
 export default function Ubicacion() {
@@ -27,7 +28,7 @@ export default function Ubicacion() {
                   <MapPin className="h-4 w-4 text-[#c1a362]" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold tracking-wide mb-2">Dirección</h4>
+                  <h4 className="text-white font-light tracking-wide mb-2">Dirección</h4>
                   <p className="text-white/75 text-base font-light leading-relaxed">
                     Pasaje San Andrés int.11<br />
                     Salvatierra Centro<br />
@@ -41,7 +42,7 @@ export default function Ubicacion() {
                   <Car className="h-4 w-4 text-[#c1a362]" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold tracking-wide mb-2">En Automóvil</h4>
+                  <h4 className="text-white font-light tracking-wide mb-2">En Automóvil</h4>
                   <p className="text-white/75 text-base font-light leading-relaxed">
                     30 minutos de Celaya · 2 horas de León.<br />
                     Fácil acceso desde la carretera federal.
@@ -54,7 +55,7 @@ export default function Ubicacion() {
                   <Navigation className="h-4 w-4 text-[#c1a362]" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold tracking-wide mb-2">Puntos de Referencia</h4>
+                  <h4 className="text-white font-light tracking-wide mb-2">Puntos de Referencia</h4>
                   <ul className="text-white/75 text-sm font-light space-y-1">
                     <li>· Frente a la Plaza Principal</li>
                     <li>· 50 metros de la Iglesia de San Francisco</li>
@@ -65,7 +66,7 @@ export default function Ubicacion() {
               </div>
 
               <button
-                className="w-full bg-[#c1a362] hover:bg-[#a98a47] text-white text-sm tracking-[0.2em] uppercase py-4 transition-all duration-300 flex items-center justify-center gap-3"
+                className="w-full bg-[#c1a362] hover:bg-[#a98a47] text-white text-sm tracking-[0.2em] uppercase py-4 transition-[background-color,transform] duration-200 ease-ui active:scale-[0.97] flex items-center justify-center gap-3"
                 onClick={() => window.open("https://maps.app.goo.gl/kpxxMGwAjmTtzQNk8", "_blank")}
               >
                 <Map className="h-4 w-4" />

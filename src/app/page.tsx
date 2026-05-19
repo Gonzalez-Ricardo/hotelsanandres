@@ -1,4 +1,3 @@
-"use client";
 import Header from ".././app/Components/header";
 import Carrusel from ".././app/Components/Carrusel";
 import Habitaciones from "./Components/habitaciones";

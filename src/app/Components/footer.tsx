@@ -47,8 +47,12 @@ export default function Footer() {
             <ul className="space-y-3 text-white/75 text-sm font-light">
               <li>Pasaje San Andrés int.11</li>
               <li>Salvatierra, Guanajuato</li>
-              <li className="pt-2">+52 (466) 105-1614</li>
-              <li>hotel.sanandres@yahoo.com.mx</li>
+              <li className="pt-2">
+                <a href="tel:+524661051614" className="hover:text-[#c1a362] transition-colors duration-200">+52 (466) 105-1614</a>
+              </li>
+              <li>
+                <a href="mailto:hotel.sanandres@yahoo.com.mx" className="hover:text-[#c1a362] transition-colors duration-200">hotel.sanandres@yahoo.com.mx</a>
+              </li>
             </ul>
           </div>
         </div>

@@ -65,21 +65,27 @@ export default function Habitaciones() {
           <div className="w-12 h-px bg-[#c1a362] mx-auto mt-6" />
         </div>
 
-        {/* Grid de habitaciones */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {rooms.map((room) => (
+        {/* Grid asimétrico — índice 1 y 2 ocupan 2 de 3 columnas, creando ritmo alternado */}
+        <div className="grid md:grid-cols-3 gap-5">
+          {rooms.map((room, index) => {
+            const isWide = index === 1 || index === 2;
+            return (
             <div
               key={room.title}
-              className="group bg-white overflow-hidden hover:shadow-xl transition-all duration-500"
+              className={`group bg-white overflow-hidden hover:shadow-2xl transition-shadow duration-500 ease-ui ${
+                isWide ? "md:col-span-2" : "md:col-span-1"
+              }`}
             >
-              {/* Imagen */}
-              <div className="relative h-56 overflow-hidden">
+              {/* Imagen — más alta en las tarjetas anchas */}
+              <div className={`relative overflow-hidden ${isWide ? "h-72" : "h-56"}`}>
                 <Image
                   src={room.image}
                   alt={room.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  sizes={isWide
+                    ? "(max-width: 768px) 100vw, 66vw"
+                    : "(max-width: 768px) 100vw, 33vw"}
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-motion"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
@@ -100,7 +106,7 @@ export default function Habitaciones() {
               {/* Contenido */}
               <div className="p-6">
                 <h3 className="text-[#1a1208] font-light text-xl mb-3 tracking-wide">{room.title}</h3>
-                <p className="text-[#4a4035] text-base font-light leading-relaxed mb-5">
+                <p className={`text-[#4a4035] text-base font-light leading-relaxed mb-5 ${isWide ? "max-w-prose" : "line-clamp-3"}`}>
                   {room.description}
                 </p>
 
@@ -121,13 +127,14 @@ export default function Habitaciones() {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* CTA */}
         <div className="text-center mt-14">
           <Link href="#contacto">
-            <button className="bg-[#1a1208] hover:bg-[#c1a362] text-white text-sm tracking-[0.2em] uppercase px-12 py-4 transition-all duration-300">
+            <button className="bg-[#1a1208] hover:bg-[#c1a362] text-white text-sm tracking-[0.2em] uppercase px-12 py-4 transition-[background-color,transform] duration-200 ease-ui active:scale-[0.97]">
               Solicitar Reserva
             </button>
           </Link>

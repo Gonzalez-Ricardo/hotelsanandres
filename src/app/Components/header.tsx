@@ -28,7 +28,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,padding,box-shadow] duration-500 ease-ui ${
         scrolled
           ? "bg-[#1a1208]/95 backdrop-blur-md shadow-lg shadow-black/20 py-2"
           : "bg-transparent py-4"
@@ -49,7 +49,7 @@ export default function Header() {
           </Link>
 
           {/* Nav desktop */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden lg:flex items-center space-x-1" aria-label="Navegación principal">
             {navLinks.map((item) => (
               <Link
                 key={item.href}
@@ -65,7 +65,7 @@ export default function Header() {
           {/* CTA + hamburger */}
           <div className="flex items-center gap-3">
             <Link href="#contacto" className="hidden md:block">
-              <Button className="bg-[#c1a362] hover:bg-[#a98a47] text-white text-sm tracking-widest uppercase px-6 py-2 rounded-none border border-[#c1a362] hover:border-[#a98a47] transition-all duration-300">
+              <Button className="bg-[#c1a362] hover:bg-[#a98a47] text-white text-sm tracking-widest uppercase px-6 py-2 rounded-none border border-[#c1a362] hover:border-[#a98a47] transition-[background-color,border-color,transform] duration-200 ease-ui active:scale-[0.97]">
                 Reservar
               </Button>
             </Link>
@@ -73,6 +73,8 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 text-white"
               aria-label="Menú"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-nav"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -81,8 +83,8 @@ export default function Header() {
 
         {/* Menú móvil */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-white/10">
-            <nav className="flex flex-col space-y-1 pt-4">
+          <div id="mobile-nav" className="lg:hidden mt-4 pb-4 border-t border-white/10">
+            <nav className="flex flex-col space-y-1 pt-4" aria-label="Navegación móvil">
               {navLinks.map((item) => (
                 <Link
                   key={item.href}
@@ -94,7 +96,7 @@ export default function Header() {
                 </Link>
               ))}
               <Link href="#contacto" onClick={() => setMobileMenuOpen(false)} className="pt-4">
-                <Button className="w-full bg-[#c1a362] hover:bg-[#a98a47] text-white uppercase tracking-widest rounded-none">
+                <Button className="w-full bg-[#c1a362] hover:bg-[#a98a47] text-white uppercase tracking-widest rounded-none transition-[background-color,transform] duration-200 ease-ui active:scale-[0.97]">
                   Reservar Ahora
                 </Button>
               </Link>

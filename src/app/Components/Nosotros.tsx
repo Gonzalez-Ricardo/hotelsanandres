@@ -36,19 +36,25 @@ export default function Nosotros() {
             {/* Eyebrow */}
             <p className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-4 font-normal">Nuestra historia</p>
 
-            <h2 className="text-5xl md:text-6xl font-thin text-[#1a1208] mb-8 leading-tight">
+            <h2 className="text-5xl md:text-6xl font-thin text-[#1a1208] mb-6 leading-tight">
               Hospitalidad <br />
               <span className="italic font-light">desde el corazón</span>
             </h2>
 
-            <p className="text-[#4a4035] text-lg leading-relaxed mb-5 font-light">
+            {/* Mobile-only: trust stat (hidden on md+ where the floating badge shows) */}
+            <div className="flex md:hidden items-center gap-4 mb-8 pb-6 border-b border-[#c1a362]/20">
+              <span className="text-3xl font-thin text-[#c1a362]">25+</span>
+              <span className="text-xs tracking-widest uppercase text-[#4a4035] font-light">años de servicio</span>
+            </div>
+
+            <p className="text-[#4a4035] text-lg leading-relaxed mb-5 font-light max-w-prose">
               El Hotel San Andrés ofrece un servicio de hospedaje de calidad en el corazón
               de Salvatierra, Guanajuato. Nuestra excelencia nace del compromiso y dedicación
               que hemos mantenido durante más de 25 años, brindando una atención cercana,
               cálida y respetuosa a cada huésped.
             </p>
 
-            <p className="text-[#4a4035] text-lg leading-relaxed mb-10 font-light">
+            <p className="text-[#4a4035] text-lg leading-relaxed mb-10 font-light max-w-prose">
               Nos sentimos orgullosos de ser parte activa de la comunidad salvaterrense,
               y nos entusiasma recibir a visitantes que desean descubrir la historia,
               cultura y hospitalidad de este hermoso municipio.
@@ -82,7 +88,7 @@ export default function Nosotros() {
             </div>
 
             {/* Misión */}
-            <div className="mt-6 border-l-2 border-[#c1a362] pl-6">
+            <div className="mt-6 border border-[#c1a362]/25 bg-[#c1a362]/5 p-6">
               <p className="text-base text-[#4a4035] italic font-light leading-relaxed">
                 &ldquo;Ofrecer a cada huésped un servicio excepcional, garantizando comodidad,
                 atención personalizada y una limpieza impecable, para que su estancia
