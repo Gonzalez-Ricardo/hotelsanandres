@@ -54,85 +54,132 @@ export default function Habitaciones() {
     <section id="habitaciones" className="py-32 bg-[#f5f0e8]">
       <div className="container mx-auto px-6 lg:px-12">
 
-        {/* Encabezado */}
-        <div className="text-center mb-20">
-          <p className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-4 font-normal">
+        <div className="text-center mb-20" data-reveal>
+          <p className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-4 font-light">
             Espacios diseñados para ti
           </p>
-          <h2 className="text-5xl md:text-6xl font-thin text-[#1a1208] mb-4 leading-tight">
-            Nuestras <span className="italic font-light">Habitaciones</span>
+          <h2 className="font-display text-5xl md:text-6xl font-normal text-[#1a1208] mb-4 leading-tight">
+            Nuestras <span className="italic">Habitaciones</span>
           </h2>
           <div className="w-12 h-px bg-[#c1a362] mx-auto mt-6" />
         </div>
 
-        {/* Grid asimétrico — índice 1 y 2 ocupan 2 de 3 columnas, creando ritmo alternado */}
         <div className="grid md:grid-cols-3 gap-5">
           {rooms.map((room, index) => {
-            const isWide = index === 1 || index === 2;
+            const isFullWidth = index === 2 || index === 3;
+            const colSpan =
+              index === 2 || index === 3
+                ? "md:col-span-3"
+                : index === 1
+                  ? "md:col-span-2"
+                  : "md:col-span-1";
+
             return (
-            <div
-              key={room.title}
-              className={`group bg-white overflow-hidden hover:shadow-2xl transition-shadow duration-500 ease-ui ${
-                isWide ? "md:col-span-2" : "md:col-span-1"
-              }`}
-            >
-              {/* Imagen — más alta en las tarjetas anchas */}
-              <div className={`relative overflow-hidden ${isWide ? "h-72" : "h-56"}`}>
-                <Image
-                  src={room.image}
-                  alt={room.title}
-                  fill
-                  sizes={isWide
-                    ? "(max-width: 768px) 100vw, 66vw"
-                    : "(max-width: 768px) 100vw, 33vw"}
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-motion"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div
+                key={room.title}
+                data-reveal
+                data-reveal-delay={String(Math.min(index + 1, 4)) as "1" | "2" | "3" | "4"}
+                className={`group bg-white overflow-hidden hover:shadow-2xl transition-shadow duration-500 ease-ui ${colSpan}`}
+              >
+                {/* Imagen + Contenido en fila para full-width, columna para el resto */}
+                <div className={isFullWidth ? "md:flex" : ""}>
 
-                {/* Rating */}
-                <div className="absolute top-4 right-4 bg-[#1a1208]/80 backdrop-blur-sm px-2 py-1 flex items-center gap-1">
-                  <Star className="h-3 w-3 fill-[#c1a362] text-[#c1a362]" />
-                  <span className="text-white text-xs font-light">{room.rating}</span>
+                  {/* Imagen */}
+                  <div className={`relative overflow-hidden flex-shrink-0 ${
+                    isFullWidth ? "md:w-1/2 h-72 md:h-auto" : index === 1 ? "h-72" : "h-56"
+                  }`}>
+                    <Image
+                      src={room.image}
+                      alt={room.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-motion"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+
+                    <div className="absolute top-4 right-4 bg-[#1a1208]/80 backdrop-blur-sm px-2 py-1 flex items-center gap-1">
+                      <Star className="h-3 w-3 fill-[#c1a362] text-[#c1a362]" />
+                      <span className="text-white text-xs font-light">{room.rating}</span>
+                    </div>
+
+                    {room.badge && (
+                      <div className="absolute top-4 left-4 bg-[#c1a362] px-3 py-1">
+                        <span className="text-white text-xs tracking-widest uppercase font-light">
+                          {room.badge}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Contenido */}
+                  <div className={`p-8 flex flex-col justify-center ${isFullWidth ? "md:w-1/2" : ""}`}>
+                    <h3 className="font-display text-[#1a1208] font-normal text-2xl mb-4 tracking-wide">
+                      {room.title}
+                    </h3>
+                    <p className="text-[#4a4035] text-base font-light leading-relaxed mb-6">
+                      {room.description}
+                    </p>
+
+                    {/* Amenidades extra para full-width */}
+                    {isFullWidth && (
+                      <ul className="grid grid-cols-2 gap-2 mb-6 text-sm text-[#4a4035] font-light">
+                        <li className="flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#c1a362] inline-block" />
+                          Baño privado equipado
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#c1a362] inline-block" />
+                          Aire acondicionado
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#c1a362] inline-block" />
+                          Wi-Fi gratuito
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#c1a362] inline-block" />
+                          Decoración artesanal
+                        </li>
+                        {room.baths === 2 && (
+                          <>
+                            <li className="flex items-center gap-2">
+                              <span className="w-1 h-1 rounded-full bg-[#c1a362] inline-block" />
+                              Dos plantas independientes
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <span className="w-1 h-1 rounded-full bg-[#c1a362] inline-block" />
+                              Área de descanso
+                            </li>
+                          </>
+                        )}
+                      </ul>
+                    )}
+
+                    <div className="flex items-center gap-5 pt-4 border-t border-[#c1a362]/15">
+                      <div className="flex items-center gap-1.5 text-[#4a4035]">
+                        <Users className="h-3.5 w-3.5 text-[#c1a362]" />
+                        <span className="text-sm font-light">{room.guests} huéspedes</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 text-[#4a4035]">
+                        <Bed className="h-3.5 w-3.5 text-[#c1a362]" />
+                        <span className="text-sm font-light">
+                          {room.beds} {room.beds === 1 ? "cama" : "camas"}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-1.5 text-[#4a4035]">
+                        <Bath className="h-3.5 w-3.5 text-[#c1a362]" />
+                        <span className="text-sm font-light">
+                          {room.baths} {room.baths === 1 ? "baño" : "baños"}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-                {/* Badge */}
-                {room.badge && (
-                  <div className="absolute top-4 left-4 bg-[#c1a362] px-3 py-1">
-                    <span className="text-white text-xs tracking-widest uppercase font-light">{room.badge}</span>
-                  </div>
-                )}
               </div>
-
-              {/* Contenido */}
-              <div className="p-6">
-                <h3 className="text-[#1a1208] font-light text-xl mb-3 tracking-wide">{room.title}</h3>
-                <p className={`text-[#4a4035] text-base font-light leading-relaxed mb-5 ${isWide ? "max-w-prose" : ""}`}>
-                  {room.description}
-                </p>
-
-                {/* Iconos */}
-                <div className="flex items-center gap-4 pt-4 border-t border-[#c1a362]/15">
-                  <div className="flex items-center gap-1.5 text-[#4a4035]">
-                    <Users className="h-3.5 w-3.5 text-[#c1a362]" />
-                    <span className="text-sm font-light">{room.guests}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-[#4a4035]">
-                    <Bed className="h-3.5 w-3.5 text-[#c1a362]" />
-                    <span className="text-sm font-light">{room.beds} {room.beds === 1 ? "cama" : "camas"}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-[#4a4035]">
-                    <Bath className="h-3.5 w-3.5 text-[#c1a362]" />
-                    <span className="text-sm font-light">{room.baths} {room.baths === 1 ? "baño" : "baños"}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
             );
           })}
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-14">
+        <div className="text-center mt-14" data-reveal>
           <Link href="#contacto">
             <button className="bg-[#1a1208] hover:bg-[#c1a362] text-white text-sm tracking-[0.2em] uppercase px-12 py-4 transition-[background-color,transform] duration-200 ease-ui active:scale-[0.97]">
               Solicitar Reserva

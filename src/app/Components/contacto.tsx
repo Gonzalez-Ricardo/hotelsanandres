@@ -18,7 +18,7 @@ export default function Contacto() {
           <div className="w-16 h-16 border border-[#c1a362] flex items-center justify-center mx-auto mb-6">
             <Check className="h-6 w-6 text-[#c1a362]" />
           </div>
-          <h2 className="text-3xl font-thin text-white mb-3">¡Gracias por tu solicitud!</h2>
+          <h2 className="font-display text-3xl font-normal text-white mb-3">¡Gracias por tu solicitud!</h2>
           <p className="text-white/75 font-light">Nos pondremos en contacto contigo muy pronto.</p>
         </div>
       </section>
@@ -29,21 +29,19 @@ export default function Contacto() {
     <section id="contacto" className="py-32 bg-[#1a1208]">
       <div className="container mx-auto px-6 lg:px-12">
 
-        {/* Encabezado */}
-        <div className="text-center mb-20">
-          <p className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-4 font-normal">
+        <div className="text-center mb-20" data-reveal>
+          <p className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-4 font-light">
             Estamos para servirte
           </p>
-          <h2 className="text-5xl md:text-6xl font-thin text-white leading-tight">
-            Contáctanos y <span className="italic font-light text-[#c1a362]">Reserva</span>
+          <h2 className="font-display text-5xl md:text-6xl font-normal text-white leading-tight">
+            Contáctanos y <span className="italic text-[#c1a362]">Reserva</span>
           </h2>
           <div className="w-12 h-px bg-[#c1a362] mx-auto mt-6" />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
 
-          {/* Información */}
-          <div>
+          <div data-reveal="left">
             <p className="text-white/75 text-lg font-light leading-relaxed mb-12">
               Estamos aquí para hacer tu estancia inolvidable. Contáctanos para
               reservas o información y te responderemos a la brevedad.
@@ -71,7 +69,6 @@ export default function Contacto() {
               ))}
             </div>
 
-            {/* Horarios */}
             <div className="mt-12 border border-white/10 p-6">
               <h4 className="text-white font-light tracking-widest mb-4 text-sm uppercase">Horarios de atención</h4>
               <div className="space-y-2">
@@ -91,33 +88,78 @@ export default function Contacto() {
             </div>
           </div>
 
-          {/* Formulario */}
-          <form onSubmit={handleSubmit} className="space-y-5" id="reservar" noValidate>
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-5"
+            id="reservar"
+            noValidate
+            data-reveal="right"
+          >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="nombre" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">Nombre</Label>
-                <Input id="nombre" name="nombre" placeholder="Tu nombre" required autoComplete="given-name" className="bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40" />
+                <Label htmlFor="nombre" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">
+                  Nombre
+                </Label>
+                <Input
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Tu nombre"
+                  required
+                  autoComplete="given-name"
+                  className="bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40 transition-colors duration-200"
+                />
               </div>
               <div>
-                <Label htmlFor="apellido" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">Apellido</Label>
-                <Input id="apellido" name="apellido" placeholder="Tu apellido" required autoComplete="family-name" className="bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40" />
+                <Label htmlFor="apellido" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">
+                  Apellido
+                </Label>
+                <Input
+                  id="apellido"
+                  name="apellido"
+                  placeholder="Tu apellido"
+                  required
+                  autoComplete="family-name"
+                  className="bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40 transition-colors duration-200"
+                />
               </div>
             </div>
 
             <div>
-              <Label htmlFor="email" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">Email</Label>
-              <Input id="email" type="email" name="email" placeholder="tu@email.com" required autoComplete="email" className="bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40" />
+              <Label htmlFor="email" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">
+                Email
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="tu@email.com"
+                required
+                autoComplete="email"
+                className="bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40 transition-colors duration-200"
+              />
               <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-xs mt-1" />
             </div>
 
             <div>
-              <Label htmlFor="telefono" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">Teléfono</Label>
-              <Input id="telefono" name="telefono" type="tel" placeholder="+52 (555) 123-4567" required autoComplete="tel" className="bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40" />
+              <Label htmlFor="telefono" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">
+                Teléfono
+              </Label>
+              <Input
+                id="telefono"
+                name="telefono"
+                type="tel"
+                placeholder="+52 (555) 123-4567"
+                required
+                autoComplete="tel"
+                className="bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40 transition-colors duration-200"
+              />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="checkin" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">Check-in</Label>
+                <Label htmlFor="checkin" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">
+                  Check-in
+                </Label>
                 <Input
                   id="checkin"
                   type="date"
@@ -126,11 +168,13 @@ export default function Contacto() {
                   min={today}
                   onChange={(e) => setCheckinDate(e.target.value)}
                   suppressHydrationWarning
-                  className="bg-white/5 border-white/10 text-white rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40 [color-scheme:dark]"
+                  className="bg-white/5 border-white/10 text-white rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40 [color-scheme:dark] transition-colors duration-200"
                 />
               </div>
               <div>
-                <Label htmlFor="checkout" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">Check-out</Label>
+                <Label htmlFor="checkout" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">
+                  Check-out
+                </Label>
                 <Input
                   id="checkout"
                   type="date"
@@ -138,19 +182,38 @@ export default function Contacto() {
                   required
                   min={checkinDate || today}
                   suppressHydrationWarning
-                  className="bg-white/5 border-white/10 text-white rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40 [color-scheme:dark]"
+                  className="bg-white/5 border-white/10 text-white rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40 [color-scheme:dark] transition-colors duration-200"
                 />
               </div>
             </div>
 
             <div>
-              <Label htmlFor="huespedes" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">Huéspedes</Label>
-              <Input id="huespedes" name="huespedes" type="number" min="1" max="10" placeholder="1" required className="bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40" />
+              <Label htmlFor="huespedes" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">
+                Huéspedes
+              </Label>
+              <Input
+                id="huespedes"
+                name="huespedes"
+                type="number"
+                min="1"
+                max="10"
+                placeholder="1"
+                required
+                className="bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40 transition-colors duration-200"
+              />
             </div>
 
             <div>
-              <Label htmlFor="mensaje" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">Mensaje adicional</Label>
-              <Textarea id="mensaje" name="mensaje" placeholder="¿En qué podemos ayudarte?" rows={3} className="bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40 resize-none" />
+              <Label htmlFor="mensaje" className="text-white/60 text-xs uppercase tracking-widest font-light mb-2 block">
+                Mensaje adicional
+              </Label>
+              <Textarea
+                id="mensaje"
+                name="mensaje"
+                placeholder="¿En qué podemos ayudarte?"
+                rows={3}
+                className="bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-[#c1a362] focus:ring-1 focus:ring-[#c1a362]/40 resize-none transition-colors duration-200"
+              />
               <ValidationError prefix="Mensaje" field="mensaje" errors={state.errors} className="text-red-400 text-xs mt-1" />
             </div>
 

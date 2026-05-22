@@ -15,25 +15,32 @@ export default function Footer() {
     <footer className="bg-[#0e0b04] text-white">
       <div className="container mx-auto px-6 lg:px-12">
 
-        {/* Main footer */}
         <div className="py-16 grid md:grid-cols-3 gap-12 border-b border-white/5">
 
-          {/* Logo + descripción */}
           <div>
-            <Image src="/images/Logo2.png" alt="Hotel San Andrés" width={100} height={100} className="mb-5 opacity-90" />
+            <Image
+              src="/images/Logo2.png"
+              alt="Hotel San Andrés"
+              width={100}
+              height={100}
+              className="mb-5 opacity-90"
+              style={{ height: "auto" }}
+            />
             <p className="text-white/75 text-base font-light leading-relaxed max-w-xs">
               Tu refugio en el corazón de Salvatierra, Guanajuato.
               Más de 25 años de hospitalidad auténtica.
             </p>
           </div>
 
-          {/* Navegación */}
           <div>
-            <h4 className="text-sm tracking-[0.3em] uppercase text-[#c1a362] mb-6 font-normal">Navegación</h4>
+            <h4 className="text-sm tracking-[0.3em] uppercase text-[#c1a362] mb-6 font-light">Navegación</h4>
             <ul className="space-y-3">
               {links.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-white/75 hover:text-[#c1a362] text-base font-light transition-colors duration-200">
+                  <Link
+                    href={item.href}
+                    className="text-white/75 hover:text-[#c1a362] text-base font-light transition-colors duration-200"
+                  >
                     {item.label}
                   </Link>
                 </li>
@@ -41,23 +48,25 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contacto */}
           <div>
-            <h4 className="text-sm tracking-[0.3em] uppercase text-[#c1a362] mb-6 font-normal">Contacto</h4>
+            <h4 className="text-sm tracking-[0.3em] uppercase text-[#c1a362] mb-6 font-light">Contacto</h4>
             <ul className="space-y-3 text-white/75 text-sm font-light">
               <li>Pasaje San Andrés int.11</li>
               <li>Salvatierra, Guanajuato</li>
               <li className="pt-2">
-                <a href="tel:+524661051614" className="hover:text-[#c1a362] transition-colors duration-200">+52 (466) 105-1614</a>
+                <a href="tel:+524661051614" className="hover:text-[#c1a362] transition-colors duration-200">
+                  +52 (466) 105-1614
+                </a>
               </li>
               <li>
-                <a href="mailto:hotel.sanandres@yahoo.com.mx" className="hover:text-[#c1a362] transition-colors duration-200">hotel.sanandres@yahoo.com.mx</a>
+                <a href="mailto:hotel.sanandres@yahoo.com.mx" className="hover:text-[#c1a362] transition-colors duration-200">
+                  hotel.sanandres@yahoo.com.mx
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom */}
         <div className="py-6 flex flex-col md:flex-row items-center justify-between text-white/20 text-xs font-light">
           <p>© 2026 Hotel San Andrés. Todos los derechos reservados.</p>
           <p className="mt-2 md:mt-0">Salvatierra, Pueblo Mágico · Guanajuato, México</p>

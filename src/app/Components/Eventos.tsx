@@ -36,13 +36,12 @@ export default function Eventos() {
     <section id="eventos" className="py-32 bg-[#1a1208]">
       <div className="container mx-auto px-6 lg:px-12">
 
-        {/* Encabezado */}
-        <div className="text-center mb-20">
-          <p className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-4 font-normal">
+        <div className="text-center mb-20" data-reveal>
+          <p className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-4 font-light">
             Cultura y tradición
           </p>
-          <h2 className="text-5xl md:text-6xl font-thin text-white leading-tight">
-            Eventos y <span className="italic font-light text-[#c1a362]">Festivales</span>
+          <h2 className="font-display text-5xl md:text-6xl font-normal text-white leading-tight">
+            Eventos y <span className="italic text-[#c1a362]">Festivales</span>
           </h2>
           <div className="w-12 h-px bg-[#c1a362] mx-auto mt-6" />
           <p className="text-white/75 text-sm font-light mt-8 max-w-2xl mx-auto leading-relaxed">
@@ -52,11 +51,14 @@ export default function Eventos() {
           </p>
         </div>
 
-        {/* Eventos principales */}
         <div className="grid md:grid-cols-3 gap-6 mb-20">
-          {mainEvents.map((event) => (
-            <div key={event.title} className="group overflow-hidden">
-              {/* Imagen */}
+          {mainEvents.map((event, i) => (
+            <div
+              key={event.title}
+              data-reveal
+              data-reveal-delay={String(i + 1) as "1" | "2" | "3"}
+              className="group overflow-hidden"
+            >
               <div className="relative h-64 overflow-hidden">
                 <Image
                   src={event.image}
@@ -71,25 +73,28 @@ export default function Eventos() {
                 </div>
               </div>
 
-              {/* Contenido */}
-              <div className="p-6 border border-white/5 border-t-0">
-                <h3 className="text-white font-light text-2xl mb-3 tracking-wide">{event.title}</h3>
+              <div className="p-6 border border-white/5 border-t-0 group-hover:border-[#c1a362]/20 transition-colors duration-300">
+                <h3 className="font-display text-white font-normal text-2xl mb-3 tracking-wide">{event.title}</h3>
                 <p className="text-white/75 text-base font-light leading-relaxed">{event.description}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Calendario mensual */}
-        <div className="border border-white/10 p-10">
-          <h3 className="text-white font-thin text-2xl mb-10 text-center">
+        <div className="border border-white/10 p-10" data-reveal>
+          <h3 className="font-display text-white font-normal text-2xl mb-10 text-center">
             Calendario <span className="italic text-[#c1a362]">mensual</span>
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-white/10">
-            {monthlyEvents.map((ev) => (
-              <div key={ev.month} className="px-8 py-4 first:pl-0 last:pr-0">
-                <div className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-3 font-normal">{ev.month}</div>
-                <div className="text-white font-light text-lg mb-2">{ev.title}</div>
+            {monthlyEvents.map((ev, i) => (
+              <div
+                key={ev.month}
+                data-reveal
+                data-reveal-delay={String(i + 1) as "1" | "2" | "3" | "4"}
+                className="px-8 py-4 first:pl-0 last:pr-0"
+              >
+                <div className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-3 font-light">{ev.month}</div>
+                <div className="font-display text-white font-normal text-lg mb-2">{ev.title}</div>
                 <div className="text-white/75 text-sm font-light leading-relaxed">{ev.desc}</div>
               </div>
             ))}

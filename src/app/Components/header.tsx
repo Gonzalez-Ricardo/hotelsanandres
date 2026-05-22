@@ -36,8 +36,7 @@ export default function Header() {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="#inicio" className="flex items-center space-x-3 group">
+          <Link href="#inicio" className="flex items-center space-x-3">
             <Image
               src="/images/Logo2.png"
               alt="Hotel San Andrés"
@@ -48,7 +47,6 @@ export default function Header() {
             />
           </Link>
 
-          {/* Nav desktop */}
           <nav className="hidden lg:flex items-center space-x-1" aria-label="Navegación principal">
             {navLinks.map((item) => (
               <Link
@@ -62,7 +60,6 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA + hamburger */}
           <div className="flex items-center gap-3">
             <Link href="#contacto" className="hidden md:block">
               <Button className="bg-[#c1a362] hover:bg-[#a98a47] text-white text-sm tracking-widest uppercase px-6 py-2 rounded-none border border-[#c1a362] hover:border-[#a98a47] transition-[background-color,border-color,transform] duration-200 ease-ui active:scale-[0.97]">
@@ -72,37 +69,60 @@ export default function Header() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 text-white"
-              aria-label="Menú"
+              aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-nav"
             >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              <span className="relative flex items-center justify-center w-6 h-6">
+                <X
+                  className={`absolute h-6 w-6 transition-[opacity,transform] duration-300 ease-ui ${
+                    mobileMenuOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90"
+                  }`}
+                />
+                <Menu
+                  className={`absolute h-6 w-6 transition-[opacity,transform] duration-300 ease-ui ${
+                    mobileMenuOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0"
+                  }`}
+                />
+              </span>
             </button>
           </div>
         </div>
 
-        {/* Menú móvil */}
-        {mobileMenuOpen && (
-          <div id="mobile-nav" className="lg:hidden mt-4 pb-4 border-t border-white/10">
-            <nav className="flex flex-col space-y-1 pt-4" aria-label="Navegación móvil">
-              {navLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="px-2 py-3 text-sm uppercase tracking-widest text-white/80 hover:text-[#c1a362] border-b border-white/5 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.label}
+        {/* Mobile menu — animated via grid-template-rows */}
+        <div
+          id="mobile-nav"
+          className="lg:hidden grid transition-[grid-template-rows] duration-400 ease-ui"
+          style={{ gridTemplateRows: mobileMenuOpen ? "1fr" : "0fr" }}
+        >
+          <div className="overflow-hidden">
+            <div className="mt-4 pb-4 border-t border-white/10">
+              <nav className="flex flex-col space-y-1 pt-4" aria-label="Navegación móvil">
+                {navLinks.map((item, i) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="px-2 py-3 text-sm uppercase tracking-widest text-white/80 hover:text-[#c1a362] border-b border-white/5 transition-colors duration-200"
+                    style={{
+                      transitionDelay: mobileMenuOpen ? `${i * 35}ms` : "0ms",
+                      transform: mobileMenuOpen ? "translateX(0)" : "translateX(-8px)",
+                      opacity: mobileMenuOpen ? 1 : 0,
+                      transition: `color 200ms, transform 350ms cubic-bezier(0.23, 1, 0.32, 1) ${i * 35}ms, opacity 350ms cubic-bezier(0.23, 1, 0.32, 1) ${i * 35}ms`,
+                    }}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                <Link href="#contacto" onClick={() => setMobileMenuOpen(false)} className="pt-4">
+                  <Button className="w-full bg-[#c1a362] hover:bg-[#a98a47] text-white uppercase tracking-widest rounded-none transition-[background-color,transform] duration-200 ease-ui active:scale-[0.97]">
+                    Reservar Ahora
+                  </Button>
                 </Link>
-              ))}
-              <Link href="#contacto" onClick={() => setMobileMenuOpen(false)} className="pt-4">
-                <Button className="w-full bg-[#c1a362] hover:bg-[#a98a47] text-white uppercase tracking-widest rounded-none transition-[background-color,transform] duration-200 ease-ui active:scale-[0.97]">
-                  Reservar Ahora
-                </Button>
-              </Link>
-            </nav>
+              </nav>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );

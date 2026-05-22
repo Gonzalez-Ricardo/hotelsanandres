@@ -1,23 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
+import { ScrollRevealInit } from "@/components/scroll-reveal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const bodoniModa = Bodoni_Moda({
+  variable: "--font-bodoni",
   subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Hotel San Andrés",
+  title: "Hotel San Andrés | Salvatierra, Pueblo Mágico",
   description:
-    "Disfruta de una estancia cómoda en el corazón de Salvatierra, Pueblo Mágico. Habitaciones amplias, atención cálida y ubicación privilegiada frente a la plaza principal.",
+    "Tu refugio en el corazón histórico de Salvatierra, Guanajuato. Más de 25 años de hospitalidad auténtica, habitaciones confortables y atención cálida frente a la plaza principal.",
+  keywords: ["hotel salvatierra", "pueblo magico guanajuato", "hotel san andres", "hospedaje salvatierra"],
 };
-
 
 export default function RootLayout({
   children,
@@ -26,9 +30,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${bodoniModa.variable} antialiased`}>
+        <ScrollRevealInit />
         {children}
       </body>
     </html>

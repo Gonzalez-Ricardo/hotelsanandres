@@ -27,7 +27,6 @@ function HeroCarousel() {
 
   return (
     <>
-      {/* Imágenes */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
           <div
@@ -46,12 +45,10 @@ function HeroCarousel() {
             />
           </div>
         ))}
-        {/* Gradiente elegante doble */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
       </div>
 
-      {/* Controles — centrado abajo en móvil, lateral en desktop */}
       <button
         onClick={prevSlide}
         className="absolute left-4 bottom-20 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-6 z-20 w-10 h-10 md:w-12 md:h-12 border border-white/30 hover:border-[#c1a362] text-white hover:text-[#c1a362] flex items-center justify-center backdrop-blur-sm transition-[border-color,color,transform] duration-200 ease-ui active:scale-[0.97]"
@@ -67,7 +64,6 @@ function HeroCarousel() {
         <FaChevronRight className="h-3 w-3 md:h-4 md:w-4" />
       </button>
 
-      {/* Indicadores */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex">
         {slides.map((_, index) => (
           <button
@@ -86,7 +82,6 @@ function HeroCarousel() {
         ))}
       </div>
 
-      {/* Barra de progreso */}
       <div className="absolute bottom-0 left-0 right-0 z-20 h-px bg-white/10">
         <div
           className="h-full bg-[#c1a362] transition-all duration-300 ease-linear"
@@ -105,20 +100,18 @@ export default function Carrusel() {
     >
       <HeroCarousel />
 
-      {/* Contenido hero — alineado abajo izquierda, estilo editorial */}
       <div className="relative z-10 w-full pb-36 md:pb-24 px-8 md:px-16 lg:px-24">
         <div className="max-w-3xl">
-          {/* Eyebrow */}
-          <p className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-5 font-normal">
+          <p className="text-[#ffd781] text-sm tracking-[0.3em] uppercase mb-5 font-light">
             Salvatierra, Guanajuato · Pueblo Mágico
           </p>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-thin text-white leading-none mb-6 tracking-tight">
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-normal text-white leading-none mb-6 tracking-tight">
             Hotel
-            <span className="block font-light italic text-[#c1a362]">San Andrés</span>
+            <span className="block italic text-[#c1a362]">San Andrés</span>
           </h1>
 
-          <p className="text-white/90 text-base md:text-lg font-light leading-relaxed mb-10 max-w-xl">
+          <p className="text-white/85 text-base md:text-lg font-light leading-relaxed mb-10 max-w-xl">
             Tu refugio en el corazón histórico de Salvatierra. Más de 25 años
             brindando hospitalidad auténtica y experiencias inolvidables.
           </p>
@@ -138,7 +131,6 @@ export default function Carrusel() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute right-8 bottom-24 z-20 flex flex-col items-center gap-2">
         <span className="text-white/40 text-xs tracking-widest uppercase" style={{ writingMode: "vertical-rl" }}>
           Scroll

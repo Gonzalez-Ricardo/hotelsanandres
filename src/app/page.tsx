@@ -13,7 +13,7 @@ import Footer from ".././app/Components/footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#d6cdc8] to-[#a9a392]">
+    <div className="min-h-screen bg-[#f5f0e8]">
       <Header />
       <Carrusel />
       <Nosotros />

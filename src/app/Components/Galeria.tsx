@@ -35,24 +35,23 @@ export default function Galeria() {
     <section id="galeria" className="py-32 bg-[#1a1208]">
       <div className="container mx-auto px-6 lg:px-12">
 
-        {/* Encabezado */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-          <div>
-            <p className="text-[#c1a362] text-sm tracking-[0.3em] uppercase mb-4 font-normal">
-              Nuestros espacios
-            </p>
-            <h2 className="text-5xl md:text-6xl font-thin text-white leading-tight">
-              Galería <span className="italic font-light text-[#c1a362]">fotográfica</span>
+          <div data-reveal>
+            <h2 className="font-display text-5xl md:text-6xl font-normal text-white leading-tight">
+              Galería <span className="italic text-[#c1a362]">fotográfica</span>
             </h2>
           </div>
-          <p className="text-white/75 text-sm font-light mt-4 md:mt-0 md:max-w-xs leading-relaxed">
+          <p
+            data-reveal
+            data-reveal-delay="1"
+            className="text-white/75 text-sm font-light mt-4 md:mt-0 md:max-w-xs leading-relaxed"
+          >
             Descubre cada rincón de nuestras habitaciones y espacios,
             diseñados para brindarte comodidad y momentos inolvidables.
           </p>
         </div>
 
-        {/* Grid asimétrico */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-reveal data-reveal-delay="2">
           {images.map((img, i) => (
             <button
               key={i}
@@ -63,7 +62,10 @@ export default function Galeria() {
               onClick={(e) => openImage(img, e)}
               aria-label={`Ver imagen ${i + 1} en tamaño completo`}
             >
-              <div className={i === 0 ? "relative h-full min-h-[300px]" : "relative w-full h-full"} style={{ aspectRatio: i !== 0 ? "4/3" : undefined }}>
+              <div
+                className={i === 0 ? "relative h-full min-h-[300px]" : "relative w-full h-full"}
+                style={{ aspectRatio: i !== 0 ? "4/3" : undefined }}
+              >
                 <Image
                   src={`/images/${img}.webp`}
                   alt={`Espacio del hotel, imagen ${i + 1}`}
@@ -80,7 +82,6 @@ export default function Galeria() {
         </div>
       </div>
 
-      {/* Modal */}
       {selectedImage && (
         <div
           role="dialog"
