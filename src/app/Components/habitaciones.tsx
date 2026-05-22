@@ -106,7 +106,7 @@ export default function Habitaciones() {
               {/* Contenido */}
               <div className="p-6">
                 <h3 className="text-[#1a1208] font-light text-xl mb-3 tracking-wide">{room.title}</h3>
-                <p className={`text-[#4a4035] text-base font-light leading-relaxed mb-5 ${isWide ? "max-w-prose" : "line-clamp-3"}`}>
+                <p className={`text-[#4a4035] text-base font-light leading-relaxed mb-5 ${isWide ? "max-w-prose" : ""}`}>
                   {room.description}
                 </p>
 
