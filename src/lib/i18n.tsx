@@ -65,7 +65,7 @@ const es: Record<string, string> = {
   "room.2.title": "Habitación Triple",
   "room.2.desc": "Nuestra Habitación Triple es perfecta para familias o grupos grandes. Dispone de dos recámaras: una con cama queen y otra con dos camas matrimoniales, todas con sábanas suaves y confortables. Incluye baño privado totalmente equipado, aire acondicionado, Wi-Fi gratuito y una decoración con detalles artesanales. Ideal para compartir momentos especiales con comodidad y privacidad en el corazón de Salvatierra.",
   "room.3.title": "Mini Depa",
-  "room.3.desc": "Nuestro Mini Depa ofrece mayor independencia y confort para familias o grupos. Tiene dos recámaras: en planta baja, una cama matrimonial, una individual y baño privado; en planta alta, dos camas matrimoniales y otro baño completo. Espacios amplios, área de descanso y detalles acogedores para una estancia cómoda y privada.",
+  "room.3.desc": "Nuestro Mini Depa ofrece mayor independencia y confort para familias o grupos. Tiene dos recámaras: en planta baja, dos camas matrimoniales, y un baño privado; en planta alta, dos camas matrimoniales y otro baño completo. Espacios amplios, área de descanso y detalles acogedores para una estancia cómoda y privada.",
 
   // Eventos
   "events.eyebrow": "Cultura y tradición",

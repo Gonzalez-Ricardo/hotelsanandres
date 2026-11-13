@@ -14,7 +14,7 @@ Pasaje San Andrés int.11, Salvatierra Centro, Salvatierra, Guanajuato, México.
 - Habitación Individual — 1 cama queen, baño privado, hasta 2 huéspedes
 - Habitación Doble — 2 camas matrimoniales, baño privado, hasta 4 huéspedes
 - Habitación Triple — 3 camas en 2 recámaras, baño privado, hasta 6 huéspedes
-- Mini Depa — 4 camas en 2 plantas, 2 baños completos, hasta 7 huéspedes
+- Mini Depa — 4 camas en 2 plantas, 2 baños completos, hasta 8 huéspedes
 
 ## Servicios incluidos
 Wi-Fi gratuito, aire acondicionado, baño privado equipado, decoración artesanal.
