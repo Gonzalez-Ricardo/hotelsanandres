@@ -135,6 +135,15 @@
   .ease-motion {
     transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
   }
+  .nav-shadow {
+    text-shadow: 0 1px 12px rgba(0,0,0,0.65);
+  }
+  .hero-shadow {
+    text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+  }
+  .writing-vertical {
+    writing-mode: vertical-rl;
+  }
 }
 
 /* ─── Line clamp ────────────────────────────────────────── */

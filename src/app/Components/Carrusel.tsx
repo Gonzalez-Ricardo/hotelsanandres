@@ -1,145 +1,121 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Link from "next/link";
+import { useT } from "@/lib/i18n";
 
 function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { t } = useT();
 
   const slides = [
-    { image: "/images/52.webp", alt: "Vista panorámica del pueblo mágico" },
-    { image: "/images/1.webp", alt: "Fachada colonial del hotel" },
-    { image: "/images/2.webp", alt: "Plaza principal con iglesia colonial" },
-    { image: "/images/24.webp", alt: "Jardines del hotel al atardecer" },
+    { image: "/images/52.webp", alt: t("hero.slide.0.alt") },
+    { image: "/images/1.webp",  alt: t("hero.slide.1.alt") },
+    { image: "/images/2.webp",  alt: t("hero.slide.2.alt") },
+    { image: "/images/24.webp", alt: t("hero.slide.3.alt") },
   ];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [slides.length]);
+  const next = useCallback(() => setCurrentSlide((p) => (p + 1) % slides.length), [slides.length]);
+  const prev = useCallback(() => setCurrentSlide((p) => (p - 1 + slides.length) % slides.length), [slides.length]);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  useEffect(() => {
+    const id = setInterval(next, 6000);
+    return () => clearInterval(id);
+  }, [next]);
 
   return (
     <>
+      {/* Slides */}
       <div className="absolute inset-0">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1500 ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image
-              src={slide.image}
-              alt={slide.alt}
-              fill
-              sizes="100vw"
-              className="object-cover scale-105"
-              priority={index === 0}
-            />
+        {slides.map((slide, i) => (
+          <div key={i} className={`absolute inset-0 transition-opacity duration-1500 ${i === currentSlide ? "opacity-100" : "opacity-0"}`}>
+            <Image src={slide.image} alt={slide.alt} fill sizes="100vw" className="object-cover scale-[1.03]" priority={i === 0} />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
+        {/* Rich overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0704]/90 via-[#0a0704]/30 to-[#0a0704]/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0704]/60 via-transparent to-transparent" />
       </div>
 
+      {/* Prev/Next */}
       <button
-        onClick={prevSlide}
-        className="absolute left-4 bottom-20 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-6 z-20 w-10 h-10 md:w-12 md:h-12 border border-white/30 hover:border-[#c1a362] text-white hover:text-[#c1a362] flex items-center justify-center backdrop-blur-sm transition-[border-color,color,transform] duration-200 ease-ui active:scale-[0.97]"
-        aria-label="Anterior"
+        onClick={prev}
+        aria-label={t("hero.prev")}
+        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-11 md:h-11 border border-white/20 hover:border-[#c1a362] text-white/60 hover:text-[#c1a362] flex items-center justify-center backdrop-blur-sm transition-all duration-300 ease-ui active:scale-95"
       >
-        <FaChevronLeft className="h-3 w-3 md:h-4 md:w-4" />
+        <FaChevronLeft className="h-3 w-3" />
       </button>
       <button
-        onClick={nextSlide}
-        className="absolute right-4 bottom-20 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:right-6 z-20 w-10 h-10 md:w-12 md:h-12 border border-white/30 hover:border-[#c1a362] text-white hover:text-[#c1a362] flex items-center justify-center backdrop-blur-sm transition-[border-color,color,transform] duration-200 ease-ui active:scale-[0.97]"
-        aria-label="Siguiente"
+        onClick={next}
+        aria-label={t("hero.next")}
+        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-11 md:h-11 border border-white/20 hover:border-[#c1a362] text-white/60 hover:text-[#c1a362] flex items-center justify-center backdrop-blur-sm transition-all duration-300 ease-ui active:scale-95"
       >
-        <FaChevronRight className="h-3 w-3 md:h-4 md:w-4" />
+        <FaChevronRight className="h-3 w-3" />
       </button>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex">
-        {slides.map((_, index) => (
+      {/* Progress bar */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 h-[2px] bg-white/10">
+        <div className="h-full bg-[#c1a362] transition-all duration-300 ease-linear" style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }} />
+      </div>
+
+      {/* Dot indicators */}
+      <div className="absolute bottom-6 right-8 z-20 flex gap-2">
+        {slides.map((_, i) => (
           <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className="flex items-center justify-center w-10 h-10"
-            aria-label={`Imagen ${index + 1}`}
-            aria-current={index === currentSlide ? "true" : undefined}
-          >
-            <span className={`block transition-all duration-300 ${
-              index === currentSlide
-                ? "w-8 h-0.5 bg-[#c1a362]"
-                : "w-4 h-0.5 bg-white/40 hover:bg-white/70"
-            }`} />
-          </button>
+            key={i}
+            onClick={() => setCurrentSlide(i)}
+            aria-label={`${t("hero.image")} ${i + 1}`}
+            aria-current={i === currentSlide ? "true" : undefined}
+            className={`transition-all duration-400 ease-ui ${i === currentSlide ? "w-6 h-[2px] bg-[#c1a362]" : "w-2 h-[2px] bg-white/30 hover:bg-white/60"}`}
+          />
         ))}
-      </div>
-
-      <div className="absolute bottom-0 left-0 right-0 z-20 h-px bg-white/10">
-        <div
-          className="h-full bg-[#c1a362] transition-all duration-300 ease-linear"
-          style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
-        />
       </div>
     </>
   );
 }
 
 export default function Carrusel() {
+  const { t } = useT();
+
   return (
-    <section
-      id="inicio"
-      className="relative h-screen flex items-end justify-start overflow-hidden"
-    >
+    <section id="inicio" className="relative h-screen min-h-[700px] flex items-end overflow-hidden">
       <HeroCarousel />
 
-      <div className="relative z-10 w-full pb-36 md:pb-24 px-8 md:px-16 lg:px-24">
-        <div className="max-w-3xl">
-          <p className="text-[#ffd781] text-sm tracking-[0.3em] uppercase mb-5 font-light">
-            Salvatierra, Guanajuato · Pueblo Mágico
+      {/* Content */}
+      <div className="relative z-10 w-full px-8 md:px-14 lg:px-20 pb-28 md:pb-20">
+        <div className="max-w-5xl">
+
+          <p className="text-white/40 text-[10px] tracking-[0.45em] uppercase mb-7 font-light hero-shadow">
+            Salvatierra, Guanajuato &nbsp;·&nbsp; Pueblo Mágico
           </p>
 
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-normal text-white leading-none mb-6 tracking-tight">
-            Hotel
-            <span className="block italic text-[#c1a362]">San Andrés</span>
+          <h1 className="font-display font-normal leading-[0.88] tracking-tight mb-8 hero-shadow">
+            <span className="block text-white/55 text-3xl sm:text-4xl md:text-5xl tracking-[0.12em] uppercase font-light">
+              Hotel
+            </span>
+            <span className="block italic text-[#c1a362] text-6xl sm:text-7xl md:text-8xl lg:text-9xl">
+              San Andrés
+            </span>
           </h1>
 
-          <p className="text-white/85 text-base md:text-lg font-light leading-relaxed mb-10 max-w-xl">
-            Tu refugio en el corazón histórico de Salvatierra. Más de 25 años
-            brindando hospitalidad auténtica y experiencias inolvidables.
+          <p className="text-white/70 text-sm md:text-base font-light leading-relaxed mb-10 max-w-lg hero-shadow">
+            {t("hero.desc")}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Link href="#habitaciones">
-              <button className="bg-[#c1a362] hover:bg-[#a98a47] text-white text-sm tracking-[0.2em] uppercase px-10 py-4 transition-[background-color,transform] duration-200 ease-ui active:scale-[0.97]">
-                Explorar Habitaciones
+              <button className="bg-[#c1a362] hover:bg-[#a98a47] text-[#1a1208] text-[11px] tracking-[0.3em] uppercase font-medium px-10 py-4 transition-all duration-300 ease-ui active:scale-[0.98]">
+                {t("hero.exploreRooms")}
               </button>
             </Link>
             <Link href="#galeria">
-              <button className="border border-white/40 hover:border-[#c1a362] text-white hover:text-[#c1a362] text-sm tracking-[0.2em] uppercase px-10 py-4 backdrop-blur-sm transition-[border-color,color,transform] duration-200 ease-ui active:scale-[0.97]">
-                Ver Galería
+              <button className="border border-white/30 hover:border-[#c1a362] text-white hover:text-[#c1a362] text-[11px] tracking-[0.3em] uppercase px-10 py-4 backdrop-blur-sm transition-all duration-300 ease-ui active:scale-[0.98] font-light">
+                {t("hero.viewGallery")}
               </button>
             </Link>
           </div>
-        </div>
-      </div>
-
-      <div className="absolute right-8 bottom-24 z-20 flex flex-col items-center gap-2">
-        <span className="text-white/40 text-xs tracking-widest uppercase" style={{ writingMode: "vertical-rl" }}>
-          Scroll
-        </span>
-        <div className="w-px h-12 bg-white/20 relative overflow-hidden">
-          <div
-            className="absolute top-0 left-0 w-full h-1/2 bg-[#c1a362]"
-            style={{ animation: "scroll-drop 2s ease-out infinite" }}
-          />
         </div>
       </div>
     </section>
